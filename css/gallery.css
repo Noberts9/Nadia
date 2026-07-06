@@ -1,0 +1,343 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;700&family=Poppins:wght@300;400;600&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#f7f2eb;
+    font-family:'Poppins',sans-serif;
+    color:#222;
+    overflow-x:hidden;
+}
+
+/* ============================
+HEADER
+============================ */
+
+.gallery-header{
+    text-align:center;
+    padding:80px 20px 40px;
+}
+
+.small-title{
+    color:#c89b3c;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    margin-bottom:15px;
+    font-size:.9rem;
+}
+
+.gallery-header h1{
+    font-family:'Cormorant Garamond',serif;
+    font-size:4rem;
+    font-weight:700;
+    line-height:1.15;
+}
+
+.gallery-header h1 span{
+    display:block;
+    opacity:0;
+    transform:translateY(-80px) rotate(-8deg);
+    animation:tumble .8s forwards;
+}
+
+.gallery-header h1 span:nth-child(2){
+    animation-delay:.4s;
+}
+
+.gallery-header h1 span:nth-child(3){
+    animation-delay:.8s;
+}
+
+@keyframes tumble{
+
+    to{
+        opacity:1;
+        transform:translateY(0) rotate(0);
+    }
+
+}
+
+/* ============================
+POLAROID WALL
+============================ */
+
+.wall{
+
+    max-width:1200px;
+
+    margin:70px auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+    gap:70px;
+
+    padding:30px;
+
+}
+
+/* ============================
+POLAROID
+============================ */
+
+.polaroid{
+
+    background:white;
+
+    padding:15px 15px 30px;
+
+    box-shadow:
+    0 20px 45px rgba(0,0,0,.18);
+
+    transition:.45s;
+
+    cursor:pointer;
+
+    opacity:0;
+
+    transform:translateY(-120px) scale(.8);
+
+    animation:drop .8s forwards;
+
+}
+
+.polaroid img{
+
+    width:100%;
+
+    height:320px;
+
+    object-fit:cover;
+
+    display:block;
+
+}
+
+.polaroid p{
+
+    text-align:center;
+
+    margin-top:18px;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:1.2rem;
+
+}
+
+/* stagger */
+
+.one{animation-delay:.3s; transform:rotate(-8deg);}
+.two{animation-delay:.5s; transform:rotate(7deg);}
+.three{animation-delay:.7s; transform:rotate(-5deg);}
+.four{animation-delay:.9s; transform:rotate(6deg);}
+.five{animation-delay:1.1s; transform:rotate(-10deg);}
+.six{animation-delay:1.3s; transform:rotate(8deg);}
+
+@keyframes drop{
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.polaroid:hover{
+
+    transform:
+    translateY(-18px)
+    rotate(0deg)
+    scale(1.05);
+
+    box-shadow:
+    0 35px 70px rgba(0,0,0,.25);
+
+    z-index:10;
+
+}
+
+/* ============================
+HIDDEN STARS
+============================ */
+
+.star{
+
+    position:fixed;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    animation:twinkle 2s infinite;
+
+    user-select:none;
+
+}
+
+.star1{
+
+    top:220px;
+    left:80px;
+
+}
+
+.star2{
+
+    right:120px;
+    top:520px;
+
+}
+
+.star3{
+
+    bottom:120px;
+    left:45%;
+
+}
+
+@keyframes twinkle{
+
+    0%,100%{
+
+        opacity:.2;
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        opacity:1;
+        transform:scale(1.3);
+
+    }
+
+}
+
+/* ============================
+POPUP
+============================ */
+
+.wish-popup{
+
+    position:fixed;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%) scale(.8);
+
+    background:white;
+
+    padding:30px 40px;
+
+    border-radius:20px;
+
+    box-shadow:
+    0 25px 60px rgba(0,0,0,.25);
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:.4s;
+
+    z-index:999;
+
+    max-width:420px;
+
+    text-align:center;
+
+}
+
+.wish-popup.show{
+
+    opacity:1;
+
+    transform:translate(-50%,-50%) scale(1);
+
+}
+
+.wish-popup p{
+
+    font-size:1.1rem;
+
+    line-height:1.8;
+
+    font-family:'Cormorant Garamond',serif;
+
+}
+
+/* ============================
+FOOTER
+============================ */
+
+.gallery-footer{
+
+    text-align:center;
+
+    padding:80px 20px;
+
+}
+
+.gallery-footer button{
+
+    padding:16px 38px;
+
+    border:none;
+
+    border-radius:40px;
+
+    background:#111;
+
+    color:white;
+
+    font-size:1rem;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+}
+
+.gallery-footer button:hover{
+
+    transform:translateY(-5px);
+
+    background:#000;
+
+}
+
+/* ============================
+RESPONSIVE
+============================ */
+
+@media(max-width:768px){
+
+.gallery-header h1{
+
+    font-size:2.5rem;
+
+}
+
+.wall{
+
+    gap:40px;
+
+}
+
+.polaroid img{
+
+    height:260px;
+
+}
+
+}

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Birthday Nadia</title>
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Envelope CSS -->
+    <link rel="stylesheet" href="components/envelope.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+
+</head>
+
+<body>
+
+<!-- =====================================
+LOADING SCREEN
+===================================== -->
+
+<div id="loadingScreen">
+
+    <div class="loading-content">
+
+        <p class="loading-small">
+            Some birthdays deserve
+            more than just a text.
+        </p>
+
+        <h1>
+            So here's something
+            made just for you.
+        </h1>
+
+        <button id="celebrateBtn">
+            Let's Celebrate
+        </button>
+
+    </div>
+
+</div>
+
+<!-- =====================================
+BACKGROUND MUSIC
+===================================== -->
+
+<audio id="bgMusic" loop>
+    <source src="assets/music.mp3" type="audio/mpeg">
+</audio>
+
+<div class="music-btn" id="musicBtn">
+    <i class="fa-solid fa-music"></i>
+</div>
+
+<!-- =====================================
+NAVBAR
+===================================== -->
+
+<nav>
+
+    <div class="logo">
+        Happy <span>Birthday</span>
+    </div>
+
+    <ul>
+        <li>Celebrate</li>
+        <li>Smile</li>
+        <li>Wish</li>
+        <li>Nadia</li>
+    </ul>
+
+</nav>
+
+<!-- =====================================
+HERO
+===================================== -->
+
+<section class="hero" id="hero">
+
+    <div class="hero-left">
+
+        <h1>
+            Happy Birthday
+            <span>Nadia</span>
+        </h1>
+
+        <p>
+            Another year.
+            Another adventure.
+            Another beautiful chapter.
+            Hope today brings smiles,
+            unforgettable memories,
+            and everything your heart has been quietly wishing for.
+        </p>
+
+        <button id="surpriseBtn">
+            Open Your Letter 🐾
+        </button>
+
+        <button id="galleryBtn" class="gallery-btn">
+          Cue the Cancer Season ☀️
+        </button>
+
+    </div>
+
+    <div class="hero-right">
+
+        <div class="image-box">
+            <canvas id="revealCanvas"></canvas>
+        </div>
+
+        <p class="hint">
+            Move your cursor across the photo ✨
+        </p>
+
+    </div>
+
+</section>
+
+<!-- =====================================
+CAT ENVELOPE COMPONENT
+===================================== -->
+
+<div id="envelopeOverlay">
+
+    <div class="envelope-container">
+
+        <div class="cat-ear left-ear"></div>
+        <div class="cat-ear right-ear"></div>
+
+        <div class="envelope">
+
+            <div class="flap"></div>
+
+            <div class="seal" id="seal">
+
+                <div class="paw">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span class="pad"></span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- LETTER -->
+
+        <div class="letter" id="letter">
+
+            <button class="close-letter" id="closeLetter">
+                &times;
+            </button>
+
+            <div class="letter-bg"></div>
+
+            <div class="letter-content">
+
+                <h2>Dear Nadia 🤍</h2>
+
+                <p>
+                    Birthdays usually come with messages that all sound the same.
+                    So instead of another "Happy Birthday" text...
+                    I built you a tiny corner of the internet.
+                    I hope this next chapter is full of beautiful cafés,
+                    unforgettable adventures,
+                    genuine friendships,
+                    lots of laughter,
+                    and moments that never need a filter.
+                    Keep shining.
+                    Keep creating.
+                    Keep being you.
+                </p>
+
+                <h3>Happy Birthday</h3>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="js/script.js"></script>
+<script src="components/envelope.js"></script>
+
+</body>
+</html>

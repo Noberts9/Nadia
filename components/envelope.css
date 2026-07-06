@@ -1,0 +1,289 @@
+/* ===================OVERLAY================== */
+#envelopeOverlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.78);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    opacity:0;
+    visibility:hidden;
+    transition:.45s ease;
+    z-index:99999;
+}
+
+#envelopeOverlay.show{
+    opacity:1;
+    visibility:visible;
+}
+
+/* =========CONTAINER=============== */
+
+.envelope-container{
+    position:relative;
+    width:420px;
+    height:320px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    transform:translateY(80px) scale(.75);
+    transition:.6s cubic-bezier(.18,.89,.32,1.28);
+}
+
+#envelopeOverlay.show .envelope-container{
+    transform:translateY(0) scale(1);
+}
+
+/* ==============CAT EARS===================== */
+
+.cat-ear{
+    position:absolute;
+    width:80px;
+    height:80px;
+    background:#F8F3EA;
+    top:-28px;
+    z-index:0;
+}
+
+.left-ear{
+    left:70px;
+    clip-path:polygon(50% 0%,0% 100%,100% 100%);
+    transform:rotate(-10deg);
+}
+
+.right-ear{
+    right:70px;
+    clip-path:polygon(50% 0%,0% 100%,100% 100%);
+    transform:rotate(10deg);
+}
+
+/* =====================ENVELOPE==================== */
+
+.envelope{
+    position:relative;
+    width:360px;
+    height:230px;
+    background:#F8F3EA;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:
+    0 30px 70px rgba(0,0,0,.45);
+    z-index:10;
+}
+
+/* ================FLAP======================== */
+
+.flap{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:120px;
+    background:#efe7db;
+    clip-path:polygon(0 0,100% 0,50% 100%);
+    transform-origin:top;
+    transition:.8s ease;
+    z-index:3;
+}
+
+.envelope.open .flap{
+    transform:rotateX(180deg);
+}
+
+/* =====================SEAL======================== */
+
+.seal{
+    position:absolute;
+    left:50%;
+    top:95px;
+    transform:translateX(-50%);
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    background:#efb7c5;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
+    z-index:5;
+    transition:.3s;
+}
+
+.seal:hover{
+    transform:translateX(-50%) scale(1.08);
+}
+
+/* ==========CSS PAW=============== */
+
+.paw{
+    position:relative;
+    width:30px;
+    height:30px;
+}
+
+.paw span{
+    position:absolute;
+    width:8px;
+    height:8px;
+    background:white;
+    border-radius:50%;
+}
+
+.paw span:nth-child(1){
+    top:0;
+    left:2px;
+}
+
+.paw span:nth-child(2){
+    top:0;
+    right:2px;
+}
+
+.paw span:nth-child(3){
+    top:10px;
+    left:-2px;
+}
+
+.paw span:nth-child(4){
+    top:10px;
+    right:-2px;
+}
+
+.pad{
+    width:18px !important;
+    height:16px !important;
+    left:50%;
+    bottom:0;
+    transform:translateX(-50%);
+    border-radius:50%;
+}
+
+/* ===============LETTER=================== */
+
+.letter{
+    position:absolute;
+    width:330px;
+    height:470px;
+    background:#fdfbf8;
+    border-radius:18px;
+    top:40px;
+    overflow:hidden;
+    box-shadow:
+    0 25px 60px rgba(0,0,0,.35);
+    transform:translateY(160px) scale(.85);
+    opacity:0;
+    pointer-events:none;
+    transition:.8s;
+    z-index:20;
+}
+
+.letter.show{
+    transform:translateY(-40px) scale(1);
+    opacity:1;
+    pointer-events:auto;
+}
+
+/* ==========BACKGROUND IMAGE=================== */
+
+.letter-bg{
+    position:absolute;
+    inset:0;
+    background-image:url("../assets/img/letter-bg.jpg");
+    background-position:center;
+    background-size:cover;
+    background-repeat:no-repeat;
+    opacity:0.35;
+    z-index:1;
+}
+
+/* ===========CONTENT================ */
+
+.letter-content{
+    position:relative;
+    z-index:2;
+    padding:45px;
+    padding-bottom:80px;
+    height:100%;
+    overflow-y:auto;
+    scrollbar-width:thin;
+    scrollbar-color:#efb7c5 transparent;
+}
+
+.letter-content h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:38px;
+    margin-bottom:25px;
+    color: crimson;
+}
+
+.letter-content p{
+    font-family:'Poppins',sans-serif;
+    line-height:2;
+    color:#000000;
+    font-size:15px;
+}
+
+.letter-content h3{
+    margin-top:35px;
+    font-family:'Cormorant Garamond',serif;
+    font-size:34px;
+    color: crimson;
+}
+
+.letter-content::-webkit-scrollbar{
+    width:6px;
+}
+
+.letter-content::-webkit-scrollbar-thumb{
+    background:#efb7c5;
+    border-radius:20px;
+}
+
+.letter-content::-webkit-scrollbar-track{
+    background:transparent;
+}
+/* ==============================
+CLOSE BUTTON
+============================== */
+
+.close-letter{
+    position:absolute;
+    right:15px;
+    top:15px;
+    width:36px;
+    height:36px;
+    border:none;
+    border-radius:50%;
+    background:#efb7c5;
+    color:white;
+    cursor:pointer;
+    font-size:20px;
+    z-index:5;
+}
+
+/* ==============================
+RESPONSIVE
+============================== */
+
+@media(max-width:768px){
+.envelope-container{
+width:95%;
+}
+
+.envelope{
+width:300px;
+height:200px;
+}
+
+.letter{
+width:90%;
+height:75vh;
+}
+
+.letter-content{
+padding:30px;
+}
+.letter-content h2{
+font-size:30px;
+}
+}
